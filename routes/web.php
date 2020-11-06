@@ -1,9 +1,13 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+//controllers
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
-use App\Models\Post;
+use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\LikesController;
+
+
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,5 +40,10 @@ Route::post('/contact',  [PagesController::class, 'postContact']);
 
 
 Route::resource('posts', PostsController::class);
+
+Route::resource('comments', PostsController::class);
+
+Route::resource('likes', PostsController::class);
+
 
 Auth::routes();

@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('links')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+@endsection
+
+
 @section('content')
 <div class="posts-show container mt-5">
 
@@ -34,8 +40,19 @@
 
 </div>
 @endif
-
-
 @endauth
+
+<div class="additional">
+
+    @include('socials.socialmedia') 
+
+    @include('socials.likescomments') 
+
+    @include('socials.comments') 
+
+
+</div>
+
+
 </div>
 @endsection

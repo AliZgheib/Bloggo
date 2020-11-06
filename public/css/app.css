@@ -16,6 +16,7 @@ html {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
+    scroll-behavior: smooth;
 }
 :root {
     --blue: #3490dc;
@@ -244,11 +245,6 @@ caption {
 th {
     text-align: inherit;
     text-align: -webkit-match-parent;
-}
-
-label {
-    display: inline-block;
-    margin-bottom: 0.5rem;
 }
 
 button {
@@ -10983,6 +10979,265 @@ a.text-dark:focus {
     }
 }
 
+/*  LIKE ANIMATION AND CSS */
+
+svg {
+    cursor: pointer;
+    overflow: visible;
+    margin: 20px;
+}
+#heart-svg {
+    height: 55px;
+    width: 55px;
+}
+#comment-svg {
+    height: 30px;
+    width: 30px;
+}
+
+svg #heart {
+    transform-origin: center;
+    animation: animateHeartOut 0.3s linear forwards;
+}
+
+svg #main-circ {
+    transform-origin: 29.5px 29.5px;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox:checked + label svg #heart {
+    transform: scale(0.2);
+    fill: #e2264d;
+    animation: animateHeart 0.3s linear forwards 0.25s;
+}
+
+.checkbox:checked + label svg #main-circ {
+    transition: all 2s;
+    animation: animateCircle 0.3s linear forwards;
+    opacity: 1;
+}
+
+.checkbox:checked + label svg #grp1 {
+    opacity: 1;
+    transition: 0.1s all 0.3s;
+}
+
+.checkbox:checked + label svg #grp1 #oval1 {
+    transform: scale(0) translate(0, -30px);
+    transform-origin: 0 0 0;
+    transition: 0.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp1 #oval2 {
+    transform: scale(0) translate(10px, -50px);
+    transform-origin: 0 0 0;
+    transition: 1.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp2 {
+    opacity: 1;
+    transition: 0.1s all 0.3s;
+}
+
+.checkbox:checked + label svg #grp2 #oval1 {
+    transform: scale(0) translate(30px, -15px);
+    transform-origin: 0 0 0;
+    transition: 0.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp2 #oval2 {
+    transform: scale(0) translate(60px, -15px);
+    transform-origin: 0 0 0;
+    transition: 1.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp3 {
+    opacity: 1;
+    transition: 0.1s all 0.3s;
+}
+
+.checkbox:checked + label svg #grp3 #oval1 {
+    transform: scale(0) translate(30px, 0px);
+    transform-origin: 0 0 0;
+    transition: 0.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp3 #oval2 {
+    transform: scale(0) translate(60px, 10px);
+    transform-origin: 0 0 0;
+    transition: 1.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp4 {
+    opacity: 1;
+    transition: 0.1s all 0.3s;
+}
+
+.checkbox:checked + label svg #grp4 #oval1 {
+    transform: scale(0) translate(30px, 15px);
+    transform-origin: 0 0 0;
+    transition: 0.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp4 #oval2 {
+    transform: scale(0) translate(40px, 50px);
+    transform-origin: 0 0 0;
+    transition: 1.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp5 {
+    opacity: 1;
+    transition: 0.1s all 0.3s;
+}
+
+.checkbox:checked + label svg #grp5 #oval1 {
+    transform: scale(0) translate(-10px, 20px);
+    transform-origin: 0 0 0;
+    transition: 0.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp5 #oval2 {
+    transform: scale(0) translate(-60px, 30px);
+    transform-origin: 0 0 0;
+    transition: 1.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp6 {
+    opacity: 1;
+    transition: 0.1s all 0.3s;
+}
+
+.checkbox:checked + label svg #grp6 #oval1 {
+    transform: scale(0) translate(-30px, 0px);
+    transform-origin: 0 0 0;
+    transition: 0.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp6 #oval2 {
+    transform: scale(0) translate(-60px, -5px);
+    transform-origin: 0 0 0;
+    transition: 1.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp7 {
+    opacity: 1;
+    transition: 0.1s all 0.3s;
+}
+
+.checkbox:checked + label svg #grp7 #oval1 {
+    transform: scale(0) translate(-30px, -15px);
+    transform-origin: 0 0 0;
+    transition: 0.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp7 #oval2 {
+    transform: scale(0) translate(-55px, -30px);
+    transform-origin: 0 0 0;
+    transition: 1.5s transform 0.3s;
+}
+
+.checkbox:checked + label svg #grp2 {
+    opacity: 1;
+    transition: 0.1s opacity 0.3s;
+}
+
+.checkbox:checked + label svg #grp3 {
+    opacity: 1;
+    transition: 0.1s opacity 0.3s;
+}
+
+.checkbox:checked + label svg #grp4 {
+    opacity: 1;
+    transition: 0.1s opacity 0.3s;
+}
+
+.checkbox:checked + label svg #grp5 {
+    opacity: 1;
+    transition: 0.1s opacity 0.3s;
+}
+
+.checkbox:checked + label svg #grp6 {
+    opacity: 1;
+    transition: 0.1s opacity 0.3s;
+}
+
+.checkbox:checked + label svg #grp7 {
+    opacity: 1;
+    transition: 0.1s opacity 0.3s;
+}
+
+@keyframes animateCircle {
+    40% {
+        transform: scale(10);
+        opacity: 1;
+        fill: #dd4688;
+    }
+    55% {
+        transform: scale(11);
+        opacity: 1;
+        fill: #d46abf;
+    }
+    65% {
+        transform: scale(12);
+        opacity: 1;
+        fill: #cc8ef5;
+    }
+    75% {
+        transform: scale(13);
+        opacity: 1;
+        fill: transparent;
+        stroke: #cc8ef5;
+        stroke-width: 0.5;
+    }
+    85% {
+        transform: scale(17);
+        opacity: 1;
+        fill: transparent;
+        stroke: #cc8ef5;
+        stroke-width: 0.2;
+    }
+    95% {
+        transform: scale(18);
+        opacity: 1;
+        fill: transparent;
+        stroke: #cc8ef5;
+        stroke-width: 0.1;
+    }
+    100% {
+        transform: scale(19);
+        opacity: 1;
+        fill: transparent;
+        stroke: #cc8ef5;
+        stroke-width: 0;
+    }
+}
+
+@keyframes animateHeart {
+    0% {
+        transform: scale(0.2);
+    }
+    40% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes animateHeartOut {
+    0% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*   LIKE ANIMATION AND CSS END*/
+
 .home {
     overflow: hidden;
     height: 88vh !important;
@@ -11122,7 +11377,7 @@ table td.title a {
 
 .posts-show p {
 }
-.posts-show img {
+.posts-show .content-data img {
     padding: 10px;
     width: 500px;
     height: 450px;
@@ -11145,11 +11400,12 @@ table td.title a {
 }
 
 .contact .btn-dark,
-.posts-create .btn-dark {
+.posts-create .btn-dark,
+.posts-edit .btn-dark {
     padding: 5px 25px !important;
 }
-.posts-create {
-    padding: 15px;
+.posts-create,
+.posts-edit {
 }
 .contact .container {
     display: grid;
@@ -11242,4 +11498,96 @@ table td.title a {
     .contact .container .additional img {
         display: none;
     }
+}
+.posts-show .additional {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.posts-show .socials {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.posts-show .socials h3,
+.posts-show .likes-comments h3,
+.posts-show .comments-section h3 {
+    font-size: 40px !important;
+}
+.posts-show .socials h5,
+.posts-show .additional .comments-section h5 {
+    font-size: 25px;
+}
+
+.posts-show .socials .links {
+    display: flex;
+    flex-direction: row;
+}
+
+.posts-show .likes-comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+.posts-show .likes-comments .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.posts-show .likes-comments .likes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.posts-show .likes-comments .comments {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.posts-show .comments-section {
+    margin-top: 20px;
+}
+
+.posts-show .comments-section .comments {
+    padding: 20px;
+}
+.posts-show .comments-section .comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: lightgray;
+    padding: 8px;
+    margin: 5px 0;
+}
+.posts-show .comments-section img {
+    height: 80px;
+    width: 75px;
+}
+.posts-show .comments-section .comment-info {
+    padding: 8px;
+}
+.posts-show .comments-section .comment-user {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 18px;
+}
+.posts-show .comments-section .comment-date {
+    font-size: 13px;
+}
+
+.posts-show .comments-section .comment-list,
+.posts-show .comments-section .add-comment {
+    margin-top: 40px;
 }

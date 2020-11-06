@@ -13,4 +13,14 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function comment()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    public function like()
+    {
+        return $this->hasMany('App\Models\Like');
+    }
 }
