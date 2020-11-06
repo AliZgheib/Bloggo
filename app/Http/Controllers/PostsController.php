@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
 
@@ -100,8 +101,17 @@ class PostsController extends Controller
     public function show($id)
     {
         //
+        //getting the name of the post writer
         $post = Post::find($id);
-        return View('posts.show')->with('post', $post);
+        $name = $post->user->name;
+
+        // getting the post data
+        $post = Post::find($id);
+
+        //grouping data into an object
+
+        $data = array('name' => $name, 'post' => $post);
+        return View('posts.show')->with($data);
     }
 
     /**

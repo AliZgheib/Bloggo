@@ -29,7 +29,10 @@ Route::get('/home', [PagesController::class, 'home']);
 
 Route::get('/about', [PagesController::class, 'about']);
 
+//contact form
 Route::get('/contact',  [PagesController::class, 'contact']);
+
+Route::post('/contact',  [PagesController::class, 'postContact']);
 
 
 Route::resource('posts', PostsController::class);

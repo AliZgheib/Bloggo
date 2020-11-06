@@ -18,16 +18,24 @@
             <div class="grid__item">
                 <div class="card"><img class="card__img" src="/storage/images/{{$post->cover_image}}" alt="{{$post->title}}">
                   <div class="card__content">
-                    <h1 class="card__header">{{$post->title}}</h1>
 
-                    @if (strlen($post->body)<100)
-                    <p class="card__text">{{$post->body}} </p>
+                    @if (strlen($post->title)<15)
+                    <h1 class="card__header">{!!$post->title!!}</h1>
 
                     @else
-                    <p class="card__text">{{substr($post->body,0,100)."..."}}</p>
+                    <h1 class="card__header">{!!substr($post->title,0,15)."..."!!}</h1>
 
                     @endif
-                  <a  style="text-decoration:none" href="/posts/{{$post->id}}" class="card__btn" >Explore<span>&rarr;</span></a>
+
+
+                    @if (strlen($post->body)<100)
+                    <div class="card__text">{!!$post->body!!}</div>
+
+                    @else
+                    <div class="card__text">{!!substr($post->body,0,100)."..."!!}</div>
+
+                    @endif
+                  <a  target="_blank" style="text-decoration:none" href="/posts/{{$post->id}}" class="card__btn" >Explore<span>&rarr;</span></a>
 
                   </div>
                 </div>

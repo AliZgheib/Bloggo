@@ -10,6 +10,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    @yield('links')
+    <script src="https://cdn.tiny.cloud/1/d8spzer1b1gobn0my2hrp5b1u049qsxcm5nhnwcqzffr1kmh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -90,5 +93,23 @@
 
             @yield('content')
     </div>
+
+    @yield('scripts')
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments',
+          toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+          toolbar_mode: 'floating',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+          content_style: "body {line-height:1}",
+          type: 'text', //text, textarea or select
+
+
+        });
+      </script>
+
+
 </body>
 </html>

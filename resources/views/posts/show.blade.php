@@ -11,10 +11,10 @@
 
 <div class="content-data">
     <img src="/storage/images/{{$post->cover_image}}" alt="post"/>
-    <p>{{$post->body}}</p>
+    <p>{!!$post->body!!}</p>
 </div>
 <hr>
-<small>Written on {{$post->created_at}}</small>
+<span>Written by <b>{{$name}}</b> on {{date("d-m-Y", strtotime($post->created_at))}}</span>
 <hr>
 
 @auth
@@ -22,7 +22,7 @@
 @if (Auth::user()->id==$post->user_id)
 
 <div class="post-actions">
-<a href="/posts/{{$post->id}}/edit" class="btn btn-primary mr-3"> Edit</a>
+<a target="_blank" href="/posts/{{$post->id}}/edit" class="btn btn-primary mr-3"> Edit</a>
 
 
 {!! Form::open(['action'=>['App\Http\Controllers\PostsController@destroy',$post->id] , 'method' => 'POST' ]) !!}

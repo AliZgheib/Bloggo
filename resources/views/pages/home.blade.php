@@ -37,8 +37,8 @@
                             <tr>
                               <th scope="row">1</th>
                             <td class="title">{{$post->title}}</td>
-                            <td><a href="/posts/{{$post->id}}" class="btn btn-block btn-success"> View</a></td>
-                              <td><a href="/posts/{{$post->id}}/edit" class="btn btn-block btn-primary"> Edit</a></td>
+                            <td><a target="_blank" href="/posts/{{$post->id}}" class="btn btn-block btn-success"> View</a></td>
+                              <td><a target="_blank" href="/posts/{{$post->id}}/edit" class="btn btn-block btn-primary"> Edit</a></td>
                               <td>{!! Form::open(['action'=>['App\Http\Controllers\PostsController@destroy',$post->id] , 'method' => 'POST' ]) !!}
 
                                 {{Form::hidden('_method','DELETE')}}
