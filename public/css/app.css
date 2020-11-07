@@ -10997,6 +10997,9 @@ a.text-dark:focus {
 }
 
 /* Modal Content */
+#myModal {
+    overflow: hidden;
+}
 .modal-content {
     background-color: #fefefe;
     margin: auto;

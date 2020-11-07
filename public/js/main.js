@@ -128,6 +128,7 @@ function displayComments() {
 
 function displayLikes() {
     likeserivce.getLikes(post).then(people => {
+        document.body.style.overflow = "hidden";
         modal.style.display = "block";
         modalContent.innerHTML = "";
         const ul = document.createElement("ul");
