@@ -7,7 +7,7 @@
 
 
 @section('content')
-<div class="posts-show container mt-5">
+<div class="posts-show container mt-5" post_id="{{$post->id}}">
 
 @include('inc.messages')
 
@@ -46,13 +46,26 @@
 
     @include('socials.socialmedia') 
 
+    @auth
     @include('socials.likescomments') 
+    @endauth
 
-    @include('socials.comments') 
+ <div   class="comments-section">
+    <h3>Comments Section</h3>
+    
+    @auth
+    @include('socials.commentform') 
+    @endauth
 
+    @include('socials.commentlist') 
+
+    
+  </div>
 
 </div>
 
+@include('layouts.modal') 
 
 </div>
 @endsection
+

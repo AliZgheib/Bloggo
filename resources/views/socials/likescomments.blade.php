@@ -6,14 +6,14 @@
             <label for="checkbox">
             @include('svgs.like') 
             </label>
-            <div class="likes-count">250</div>
+            <div class="likes-count"></div>
         </div>
 
         <div class="comments">
-            <a href="#comments-section">
+            <span href="#comments-section">
             @include('svgs.comment') 
-            </a>
-            <div class="comments-count">20231</div>
+            </span>
+            <div class="comments-count"></div>
 
         </div>
     </div>

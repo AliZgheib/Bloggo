@@ -2,83 +2,76 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\Like;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LikesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function checkStatus($postId)
     {
-        //
+
+        //getting the  like row
+        $like = Like::where('user_id', Auth::user()->id)->where('post_id', $postId)->first();
+
+        return $like;
+        return response()->json([
+            'data' => $like,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function switchStatus($postId)
     {
-        //
+        //getting the like row of this authenticated user on this specific post
+
+        $like = Like::where('user_id', Auth::user()->id)->where('post_id', $postId)->first();
+
+        if (isset($like->id)) {
+
+            //post is liked
+            $like->delete();
+
+            return response()->json([
+                'is_liked' => false,
+            ]);
+        } else {
+
+            //post is not liked
+            $newLike =  new Like();
+
+            $newLike->post_id = $postId;
+            $newLike->user_id = Auth::user()->id;
+
+            //saving the data to the db
+            return $newLike->save();
+
+            return response()->json([
+                'is_liked' => true,
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function getAllLikes($postId)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        //getting the  the list of likes for this specific post 
+        $likes = Like::all()->where('post_id', $postId);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        // pushing data to an array;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $results = array();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        foreach ($likes as $like) {
+
+            array_push($results, $like->user->name);
+        }
+
+        return response()->json([
+            'data' => $results,
+        ]);
     }
 }

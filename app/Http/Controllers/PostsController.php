@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
 
@@ -107,6 +108,7 @@ class PostsController extends Controller
 
         // getting the post data
         $post = Post::find($id);
+
 
         //grouping data into an object
 

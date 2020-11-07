@@ -15,7 +15,7 @@ html {
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
-                                supported by Chrome, Edge, Opera and Firefox */
+                              supported by Chrome, Edge, Opera and Firefox */
     scroll-behavior: smooth;
 }
 :root {
@@ -10979,20 +10979,66 @@ a.text-dark:focus {
     }
 }
 
+/* MODAL CSS
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+*/
+
 /*  LIKE ANIMATION AND CSS */
 
 svg {
     cursor: pointer;
     overflow: visible;
-    margin: 20px;
 }
 #heart-svg {
     height: 55px;
     width: 55px;
+    cursor: pointer;
 }
 #comment-svg {
     height: 30px;
     width: 30px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 svg #heart {
@@ -11446,8 +11492,8 @@ table td.title a {
     font-size: 30px;
     width: 60px;
     text-align: center;
-    text-decoration: none;
     margin: 5px 2px;
+    text-decoration: none !important;
 }
 
 .fa:hover {
@@ -11590,4 +11636,34 @@ table td.title a {
 .posts-show .comments-section .comment-list,
 .posts-show .comments-section .add-comment {
     margin-top: 40px;
+}
+
+.posts-show .likes {
+    margin-right: 15px;
+}
+.posts-show .likes-count {
+    cursor: pointer;
+}
+
+.posts-show .modal-content img {
+    height: 150px;
+    width: 150px;
+}
+
+.posts-show .modal-content ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.posts-show .modal-content ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.posts-show .comments-section {
+    width: 100%;
 }

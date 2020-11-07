@@ -11,13 +11,11 @@
 
     <!-- Scripts -->
     @yield('links')
-    <script src="https://cdn.tiny.cloud/1/d8spzer1b1gobn0my2hrp5b1u049qsxcm5nhnwcqzffr1kmh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.tiny.cloud/1/d8spzer1b1gobn0my2hrp5b1u049qsxcm5nhnwcqzffr1kmh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -95,6 +93,7 @@
     </div>
 
     @yield('scripts')
+
     <script>
         tinymce.init({
           selector: 'textarea',
@@ -108,8 +107,12 @@
 
 
         });
-      </script>
-
+      </script>   
+ <script src="/js/helper.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
+<script src="/js/modal.js"></script>
+<script src="/js/service.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>

@@ -39,11 +39,24 @@ Route::get('/contact',  [PagesController::class, 'contact']);
 Route::post('/contact',  [PagesController::class, 'postContact']);
 
 
+//handle all type of requests on post
 Route::resource('posts', PostsController::class);
 
-Route::resource('comments', PostsController::class);
 
-Route::resource('likes', PostsController::class);
+//handle like requests
+Route::get('/like/{postId}', [LikesController::class, 'checkStatus']);
+
+Route::post('/like/{postId}', [LikesController::class, 'switchStatus']);
+
+Route::get('/likes/{postId}', [LikesController::class, 'getAllLikes']);
+
+
+//handle comment request
+
+Route::get('/comment/{postId}', [CommentsController::class, 'getComments']);
+
+
+Route::post('/comment/{postId}', [CommentsController::class, 'postComment']);
 
 
 Auth::routes();
